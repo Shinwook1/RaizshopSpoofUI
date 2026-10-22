@@ -28,16 +28,22 @@
       text-align: left;
     }
     .mark {
-      width: 76px;
-      height: 76px;
-      border-radius: 22px;
+      width: 84px;
+      height: 84px;
+      border-radius: 24px;
       margin: 0 auto 28px;
       background: #1a0f00;
       border: 1px solid #4d2e00;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 34px;
+      overflow: hidden;
+      padding: 6px;
+    }
+    .mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     h1 {
       text-align: center;
@@ -122,7 +128,10 @@
 </head>
 <body>
   <div class="box">
-    <div class="mark" aria-hidden="true">👉</div>
+    <!-- 배경 없는 캐릭터 이미지를 외부 URL로 바로 연결했습니다 -->
+    <div class="mark" aria-hidden="true">
+      <img src="https://i.postimg.cc/mD8Z8sXQ/raze-icon.png" alt="캐릭터 아이콘">
+    </div>
     <h1>레이즈샵 <b>스푸퍼 다운로드</b></h1>
     <div class="field">
       <label for="code">라이선스 키</label>
@@ -134,7 +143,6 @@
 
   <script>
     (function(){
-      // 원본 서버의 실제 다운로드 API 엔드포인트 지정
       var base = 'https://luna.yeinium.com/api/download/0e5o/spoof';
       var inp = document.getElementById('code');
       var err = document.getElementById('err');
