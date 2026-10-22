@@ -28,22 +28,18 @@
       text-align: left;
     }
     .mark {
-      width: 84px;
-      height: 84px;
-      border-radius: 24px;
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
       margin: 0 auto 28px;
-      background: #1a0f00;
-      border: 1px solid #4d2e00;
+      background: #171717;
+      border: 1px solid #333333;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      padding: 6px;
-    }
-    .mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      font-size: 36px;
+      /* 수류탄 이모티콘 주황색 발광 및 글로우 효과 */
+      filter: drop-shadow(0 0 6px #ff8000);
     }
     h1 {
       text-align: center;
@@ -128,9 +124,8 @@
 </head>
 <body>
   <div class="box">
-    <div class="mark" aria-hidden="true">
-      <img src="https://cdn.discordapp.com/attachments/1512612290770243584/1562844893850902619/IMG_4661.png?ex=6adb783a&is=6ada26ba&hm=7b3cb637f6f070bad09788e2dffde3a683750f742b2a38270acf1fa57fe45653&" alt="캐릭터 아이콘">
-    </div>
+    <!-- 주황색 수류탄 이모티콘 적용 -->
+    <div class="mark" aria-hidden="true">💣</div>
     <h1>레이즈샵 <b>스푸퍼 다운로드</b></h1>
     <div class="field">
       <label for="code">라이선스 키</label>
