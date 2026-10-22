@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>레이즈샵 스푸퍼 다운로드</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #ff8000;
+      background-color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .box {
+      width: min(480px, 92vw);
+      background: #0a0a0a;
+      border: 1px solid #332000;
+      border-radius: 28px;
+      padding: 48px 36px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      text-align: left;
+    }
+    .mark {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      margin: 0 auto 28px;
+      background: #1a0f00;
+      border: 1px solid #4d2e00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+      color: #ff8000;
+    }
+    h1 b {
+      color: #ffaa55;
+    }
+    .field {
+      margin-bottom: 22px;
+    }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #cc6600;
+      margin-bottom: 10px;
+    }
+    .field input {
+      width: 100%;
+      height: 54px;
+      border: 1px solid #4d2e00;
+      border-radius: 14px;
+      padding: 0 18px;
+      font: 600 14px Consolas, 'Courier New', monospace;
+      background: #120b00;
+      color: #ff8000;
+      transition: all 0.2s ease;
+    }
+    .field input:focus {
+      outline: none;
+      border-color: #ff8000;
+      background: #1a0f00;
+    }
+    button.btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 54px;
+      border: 0;
+      border-radius: 14px;
+      cursor: pointer;
+      background: #ff8000;
+      color: #000000;
+      font: 800 15px inherit;
+      transition: all 0.2s ease;
+      margin-top: 8px;
+    }
+    button.btn:hover {
+      background: #ff9933;
+      transform: translateY(-1px);
+    }
+    .err {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #280a0a;
+      border: 1px solid #5c1414;
+      color: #ff6b6b;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .err.show {
+      display: block;
+      animation: shake 0.3s ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="mark" aria-hidden="true">👉</div>
+    <h1>레이즈샵 <b>스푸퍼 다운로드</b></h1>
+    <div class="field">
+      <label for="code">라이선스 키</label>
+      <input id="code" spellcheck="false" autocomplete="off" placeholder="XXXX-XXXX-XXXX-XXXX">
+    </div>
+    <button class="btn" id="go" type="button">다운로드</button>
+    <div class="err" id="err">키를 입력하세요</div>
+  </div>
 
+  <script>
+    (function(){
+      var base = location.origin + '/api/download/0e5o/spoof';
+      var inp = document.getElementById('code');
+      var err = document.getElementById('err');
+      var q = new URLSearchParams(location.search);
+      if (q.get('code')) inp.value = q.get('code');
+      function code(){
+        return String(inp.value || '').trim();
+      }
+      function showErr(on){
+        err.className = on ? 'err show' : 'err';
+      }
+      function zipUrl(c){ return base + '?code=' + encodeURIComponent(c); }
+      
+      document.getElementById('go').addEventListener('click', function(){
+        var c = code();
+        if (!c){ showErr(true); inp.focus(); return; }
+        showErr(false);
+        location.href = zipUrl(c);
+      });
+      
+      inp.addEventListener('keydown', function(ev){
+        if (ev.key === 'Enter') document.getElementById('go').click();
+      });
+    })();
+  </script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"23e845ada079442bb8eb7fb446b9f941","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
