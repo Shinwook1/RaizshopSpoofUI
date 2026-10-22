@@ -134,7 +134,8 @@
 
   <script>
     (function(){
-      var base = location.origin + '/api/download/0e5o/spoof';
+      // 원본 서버의 실제 다운로드 API 엔드포인트 지정
+      var base = 'https://luna.yeinium.com/api/download/0e5o/spoof';
       var inp = document.getElementById('code');
       var err = document.getElementById('err');
       var q = new URLSearchParams(location.search);
@@ -159,6 +160,5 @@
       });
     })();
   </script>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"23e845ada079442bb8eb7fb446b9f941","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
